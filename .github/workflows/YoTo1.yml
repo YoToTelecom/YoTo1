@@ -25,8 +25,7 @@ jobs:
       - name: '运行 【YoTo1】'
         run: |
           cd ~/YoTo1   
-          node YoTo.js
+          node YoTo1.js
         env:
-          YOUTH_READ: ${{ secrets.YOUTH_READ }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
