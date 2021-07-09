@@ -1,0 +1,32 @@
+name: YoTo1
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '0 */6 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest    
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/YoToTelecom/YoTo1.git ~/YoTo1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          cd ~/YoTo1
+          npm install
+          npm install cron
+          npm install request
+      - name: '运行 【YoTo1】'
+        run: |
+          cd ~/YoTo1   
+          node YoTo.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
