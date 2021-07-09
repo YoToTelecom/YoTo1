@@ -6,7 +6,7 @@ Github Actions使用方法见[@lxk0301](https://raw.githubusercontent.com/lxk030
 */
 
 const $ = new Env("中青看点阅读")
-const notify = $.isNode('./boy.json') ? require('./sendNotify') : '';
+//const notify = $.isNode('./boy.json') ? require('./sendNotify') : '';
 let ReadArr = [], timebodyVal ="";
 let YouthBody = $.getdata('youth_autoread')||$.getdata("zqgetbody_body");
 let smallzq = $.getdata('youth_cut');
